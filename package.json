@@ -6,9 +6,17 @@
   "scripts": {
     "test": "node --test",
     "test:watch": "node --test --watch",
-    "test:coverage": "node --experimental-test-coverage --test --test-coverage-lines=100 --test-coverage-functions=100 --test-coverage-branches=75"
+    "test:coverage": "node --experimental-test-coverage --test --test-coverage-lines=100 --test-coverage-functions=100 --test-coverage-branches=85",
+    "test:mutation": "stryker run",
+    "test:quality": "npm run test:coverage && npm run test:mutation"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@stryker-mutator/core": "10.0.0"
+  },
+  "overrides": {
+    "qs": "6.16.0"
   }
 }
