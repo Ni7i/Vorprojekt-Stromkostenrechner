@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Stromkostenrechner für den Vergleich der EKZ- und IWB-Modelltarife 2026."
+    >
+    <meta name="theme-color" content="#245d4a">
+    <title>Stromkostenrechner 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/tarife.js" defer></script>
+    <script src="js/rechner.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#rechner">Direkt zum Rechner</a>
+
+    <main class="page-shell" id="top">
+      <header class="page-header">
+        <p>IDPA-Vorprojekt</p>
+        <h1>Stromkostenrechner 2026</h1>
+        <p>
+          Berechnung und Vergleich der vereinfachten Tarife von EKZ und IWB.
+        </p>
+      </header>
+
+      <section class="calculator" id="rechner" aria-labelledby="calculator-title">
+        <h2 id="calculator-title">Berechnung</h2>
+
+        <form id="calculator-form" novalidate>
+          <div class="field-group">
+            <label for="consumption">Jahresverbrauch in kWh</label>
+            <input
+              id="consumption"
+              name="consumption"
+              type="text"
+              inputmode="decimal"
+              autocomplete="off"
+              value="2500"
+              aria-describedby="consumption-hint consumption-error"
+              required
+            >
+            <p class="field-hint" id="consumption-hint">Erlaubt sind 0 bis 12’999 kWh.</p>
+            <p class="field-error" id="consumption-error" role="alert"></p>
+          </div>
+
+          <div class="field-group">
+            <label for="tariff-selection">Tarif</label>
+            <select id="tariff-selection" name="tariff">
+              <option value="compare" selected>EKZ und IWB vergleichen</option>
+              <option value="EKZ_2026_BASIS">Nur EKZ 2026</option>
+              <option value="IWB_2026_SMALL_ET">Nur IWB 2026</option>
+            </select>
+          </div>
+
+          <button type="submit">Berechnen</button>
+        </form>
+      </section>
+
+      <section class="results" aria-labelledby="results-title">
+        <div id="results" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="page-shell">
+        <p>
+          <strong>Datenschutz:</strong> Die Berechnung findet lokal im Browser statt.
+          Eingaben werden nicht gespeichert oder übertragen.
+        </p>
+        <p>
+          Schulprojekt im Rahmen einer Vor-Abschlussarbeit (IDPA). Die Ergebnisse sind
+          ein Modellvergleich und keine verbindliche Stromrechnung.
+        </p>
+        <p>© 2026 Projektgruppe 2026-5 · Vincent Hug, Enis Shorra und Lorena Campell</p>
+      </div>
+    </footer>
+
+    <noscript>
+      <p class="noscript-message">Für die Berechnung muss JavaScript aktiviert sein.</p>
+    </noscript>
+  </body>
+</html>
