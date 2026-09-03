@@ -1,0 +1,14 @@
+{
+  "name": "stromkostenrechner-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Browserbasierter Stromkostenrechner für EKZ- und IWB-Modelltarife 2026",
+  "scripts": {
+    "test": "node --test",
+    "test:watch": "node --test --watch",
+    "test:coverage": "node --experimental-test-coverage --test --test-coverage-lines=100 --test-coverage-functions=100 --test-coverage-branches=75"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
