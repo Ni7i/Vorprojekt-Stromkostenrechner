@@ -19,5 +19,11 @@ jobs:
         with:
           node-version: 24
 
+      - name: Entwicklungsabhängigkeiten installieren
+        run: npm ci
+
       - name: Unit-Tests mit Coverage ausführen
         run: npm run test:coverage
+
+      - name: Qualität der Unit-Tests mit Mutationen prüfen
+        run: npm run test:mutation
