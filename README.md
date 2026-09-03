@@ -1,5 +1,7 @@
 # Stromkostenrechner 2026
 
+[![Tests und Coverage](https://github.com/Ni7i/Vorprojekt-Stromkostenrechner/actions/workflows/tests.yml/badge.svg?branch=codex%2Finitial-stromkostenrechner)](https://github.com/Ni7i/Vorprojekt-Stromkostenrechner/actions/workflows/tests.yml?query=branch%3Acodex%2Finitial-stromkostenrechner)
+
 Ein browserbasierter Stromkostenrechner für das IDPA-Vorprojekt. Die Anwendung berechnet und vergleicht die vereinfachten Lehrtarife von EKZ und IWB für das Jahr 2026.
 
 ## Start
@@ -23,11 +25,23 @@ Es sind keine Installation, kein Server und keine Internetverbindung erforderlic
 
 ## Tests
 
-Die automatisierten Tests benötigen Node.js, aber keine zusätzlichen Pakete:
+Die automatisierten Tests benötigen Node.js 22 oder neuer, aber keine zusätzlichen Pakete.
+Alle Tests ausführst du mit:
 
 ```bash
-node --test tests/rechner.test.js
+npm test
 ```
+
+Den vollständigen Coverage-Bericht zeigst du direkt im Terminal an mit:
+
+```bash
+npm run test:coverage
+```
+
+Der Coverage-Lauf schlägt automatisch fehl, wenn die getestete Rechenlogik weniger als
+100&nbsp;% Zeilen-, 100&nbsp;% Funktions- oder 75&nbsp;% Branch-Coverage erreicht. Derselbe
+Lauf wird bei jedem Push und Pull Request unter **GitHub → Actions → Tests und Coverage**
+ausgeführt.
 
 Die verbindliche Kontrollrechnung bei 2’500 kWh ergibt:
 
