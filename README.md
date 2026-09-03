@@ -25,10 +25,11 @@ Es sind keine Installation, kein Server und keine Internetverbindung erforderlic
 
 ## Tests
 
-Die automatisierten Tests benötigen Node.js 22 oder neuer, aber keine zusätzlichen Pakete.
-Alle Tests ausführst du mit:
+Die automatisierten Tests benötigen Node.js 22 oder neuer. Installiere zuerst die
+Entwicklungswerkzeuge und führe danach alle Unit-Tests aus:
 
 ```bash
+npm ci
 npm test
 ```
 
@@ -39,9 +40,21 @@ npm run test:coverage
 ```
 
 Der Coverage-Lauf schlägt automatisch fehl, wenn die getestete Rechenlogik weniger als
-100&nbsp;% Zeilen-, 100&nbsp;% Funktions- oder 75&nbsp;% Branch-Coverage erreicht. Derselbe
-Lauf wird bei jedem Push und Pull Request unter **GitHub → Actions → Tests und Coverage**
-ausgeführt.
+100&nbsp;% Zeilen-, 100&nbsp;% Funktions- oder 85&nbsp;% Branch-Coverage erreicht.
+
+### Qualität der Tests prüfen
+
+Mutation Testing verändert die Rechenlogik vorübergehend mit absichtlichen Fehlern. Gute
+Unit-Tests müssen diese Veränderungen erkennen und fehlschlagen. Die Originaldateien werden
+dabei nicht verändert.
+
+```bash
+npm run test:mutation
+```
+
+Der ausführliche HTML-Bericht liegt danach unter `reports/mutation/index.html`. Der Lauf
+schlägt bei einem Mutation Score unter 90&nbsp;% fehl. Coverage und Mutation Testing werden
+bei jedem Push und Pull Request unter **GitHub → Actions → Tests und Coverage** ausgeführt.
 
 Die verbindliche Kontrollrechnung bei 2’500 kWh ergibt:
 
