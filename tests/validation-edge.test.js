@@ -12,6 +12,12 @@ test("akzeptiert Nullverbrauch und beide Dezimaltrennzeichen", () => {
       kwh: 0
     });
   }
+
+  assert.deepEqual(calculator.parseConsumption("1,2"), {
+    valid: true,
+    kwhHundredths: 120,
+    kwh: 1.2
+  });
 });
 
 test("entfernt erlaubte Tausendertrennzeichen und Leerraum", () => {

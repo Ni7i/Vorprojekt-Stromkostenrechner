@@ -20,6 +20,13 @@ test("weist ungültige interne Verbrauchswerte zurück", () => {
   }
 });
 
+test("berechnet auch den maximal zulässigen Verbrauch", () => {
+  const result = calculator.calculateTariff("EKZ_2026_BASIS", 1_299_900);
+
+  assert.equal(result.kwh, 12_999);
+  assert.ok(result.totalCents > 0);
+});
+
 test("gibt Verbrauch und Tarif im Resultat mit zurück", () => {
   const result = calculator.calculateTariff("EKZ_2026_BASIS", 123_456);
 
@@ -36,4 +43,11 @@ test("Vergleich enthält beide Tarife genau einmal", () => {
     comparison.results.map((result) => result.tariff.id),
     ["EKZ_2026_BASIS", "IWB_2026_SMALL_ET"]
   );
+});
+
+test("erkennt bei Nullverbrauch IWB als günstigeren Tarif", () => {
+  const comparison = calculator.compareTariffs(0);
+
+  assert.equal(comparison.cheaperTariffId, "IWB_2026_SMALL_ET");
+  assert.equal(comparison.differenceCents, 4_548);
 });
